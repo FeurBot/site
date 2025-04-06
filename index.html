@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Site web du bot Discord FeurBot">
+    <meta property="og:title" content="Feur Bot">
+    <meta property="og:description" content="Site web du bot Discord FeurBot">
+    <meta property="og:image" content="https://i.imgur.com/kdD8R2a.png">
+    <meta property="og:url" content="https://pfdcraft.infrasky.fr/">
+    <meta property="og:type" content="website">
+    <title>Feur Bot</title>
+
+    <link rel="icon" href="./pic/feur_logo.png">
+
+<style>
+    @keyframes fadeInZoom {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+    body{
+        background-color: rgb(0, 51, 34);
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        animation: fadeInZoom 2s ease-out 0.02s forwards;
+
+    }
+    .feurbottitle {
+
+        font-family: Arial, Helvetica, sans-serif;
+        display: inline;
+        font-size: 800%;
+        color:aquamarine;
+        cursor:pointer;
+        
+    }
+
+    .feurbottitle:hover {
+        border-radius: 2%;
+        transform: scale(0.95);
+        color:rgb(60, 134, 107);
+        transition: 0.2s;
+        
+        
+    }
+</style>
+    
+</head>
+<body>
+    <h2 class="feurbottitle" id="feurbottitle"><a href="">Feur Bot</a></h2>
+</body>
+</html>
+<script>
+    const titre = document.getElementById("feurbottitle")
+</script>
