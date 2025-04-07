@@ -6,8 +6,8 @@
     <meta name="description" content="Site web du bot Discord FeurBot">
     <meta property="og:title" content="Feur Bot">
     <meta property="og:description" content="Site web du bot Discord FeurBot">
-    <meta property="og:image" content="https://i.imgur.com/kdD8R2a.png">
-    <meta property="og:url" content="https://pfdcraft.infrasky.fr/">
+    <meta property="og:image" content="./pic/feurbot_logo.png">
+    <meta property="og:url" content="">
     <meta property="og:type" content="website">
     <title>Feur Bot</title>
 
@@ -24,39 +24,171 @@
         transform: translateY(0px);
     }
 }
-    body{
-        background-color: rgb(0, 51, 34);
-        display: flex;
-        justify-content: center;
-        align-content: center;
-        animation: fadeInZoom 2s ease-out 0.02s forwards;
+@keyframes shakeAndGrow {
 
-    }
+            0% {
+                transform: translateX(0);
+            }
+            10% {
+                transform: translateX(-5px) scale(1.1);
+            }
+            20% {
+                transform: translateX(5px) scale(1.2);
+            }
+            30% {
+                transform: translateX(-5px) scale(1.3);
+            }
+            40% {
+                transform: translateX(5px) scale(1.4);
+            }
+            50% {
+                transform: translateX(-5px) scale(1.5);
+            }
+            60% {
+                transform: translateX(5px) scale(1.6);
+            }
+            70% {
+                transform: translateX(-5px) scale(1.7);
+            }
+            80% {
+                transform: translateX(5px) scale(1.8);
+            }
+            90% {
+                transform: translateX(-5px) scale(1.9);
+            }
+            100% {
+                transform: translateX(0) scale(2);
+
+            }
+        }
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: rgb(0, 17, 39);
+    color: aquamarine;
+    font-family: Arial, Helvetica, sans-serif;
+}
     .feurbottitle {
-
         font-family: Arial, Helvetica, sans-serif;
-        display: inline;
+        margin: auto;
+        display:block;
+        justify-content: center;
         font-size: 800%;
         color:aquamarine;
-        cursor:pointer;
-        
+        cursor:pointer; 
+        -webkit-user-drag: none;
+        user-select: none;
     }
+    .feurbottitle a {
+        text-decoration: none;
+        color: currentColor;
+    }
+    .footer {
+    text-align: center;
+    padding: 2.5rem;
+    font-size: 1.2rem;
+    color: aquamarine;
+    background-color: #111;
 
-    .feurbottitle:hover {
+}
+    .discord_link{
+        color: aquamarine;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    }
+    .discord_link :hover{
+        color: rgb(53, 116, 95);
+        gap: 6px;
+        transition: 1s;
+    }
+    .discord_logo{
+        width: calc(90.92px / 2 );
+        height: calc(102.452px / 2 );
+    }
+    .biographie{
+        text-align: center;
+        padding: 4rem;
+    }
+    .biographie h4{
+        color: beige;
+    }
+    .feurbotlogo{
+        width: 20rem;
+        height: 20rem;
+        margin: auto;
+        border-radius: 3rem;
+        opacity: 0;
+        -webkit-user-drag: none;
+    }
+    .feurbotlogo :hover{
+        text-decoration: none;
         border-radius: 2%;
         transform: scale(0.95);
         color:rgb(60, 134, 107);
+        text-decoration: none;
         transition: 0.2s;
-        
-        
+    }
+    .animate_shake_grow{
+        animation: shakeAndGrow 0.2s ease-in-out
+    }
+    .animatefeur{
+        animation: fadeInZoom 1s ease-in-out;
+    }
+    .visible{
+        opacity: 1;
     }
 </style>
     
 </head>
 <body>
-    <h2 class="feurbottitle" id="feurbottitle"><a href="">Feur Bot</a></h2>
+    <h2 class="feurbottitle" id="feurbottitle" >Feur Bot</h2>
+    <img class="feurbotlogo" src="./pic/feur_logo.png" alt="FeurBotLogo.png" id="imagefeur" onclick="playClickSound(), gros()">
+    <div class="biographie">
+        <h1>Qu'est ce  que c'est ?</h1>
+        <h4>Feur Bot est un bot Discord qui ajoute la touche de fun manquante à votre serveur</h4>
+    </div>
+
+
+
+
+    <footer class="footer">
+        © 2025 FeurBot • Créé par Fox8a7 • <a href="https://discord.gg/4VpcKjqGf7" target="_blank" class="discord_link">Serveur Discord<img src="./pic/discord_logo.png" alt="discord_icon" class="discord_logo"></a>
+    </footer>
+
 </body>
 </html>
 <script>
-    const titre = document.getElementById("feurbottitle")
+    const titre = document.getElementById('feurbottitle')
+    const image = document.getElementById("imagefeur")
+    const clickSound = new Audio("sounds/feur.mp3")
+    function playClickSound() {
+        clickSound.currentTime = 0; // remet à zéro si le son est rejoué vite
+        clickSound.play();
+    }
+    image.addEventListener("click", ()=>{
+        image.classList.add("animate_shake_grow")
+        setTimeout(()=>{
+        image.classList.remove("animate_shake_grow")        
+    },200)
+    })
+    window.addEventListener("load",()=>{
+        titre.classList.add("animatefeur")
+        setTimeout(()=>{image.classList.add("animatefeur")},1000 )
+        setTimeout(()=>{
+        image.classList.remove("animatefeur")
+        image.classList.add("visible")
+        titre.classList.remove("animatefeur")
+        },2000)
+        
+
+    })
+
+    
 </script>
+<script class="footer, buymeacoffee" data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="fox8a7" data-description="Support me on Buy me a coffee!" data-message="" data-color="#5F7FFF" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
