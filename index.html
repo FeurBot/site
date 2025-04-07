@@ -93,8 +93,17 @@ body {
     font-size: 1.2rem;
     color: aquamarine;
     background-color: #111;
-
-}
+    }
+    .bmac {
+        display: inline-block;
+    padding: 10px 20px;
+    background-color: #5F7FFF;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-family: sans-serif;
+    margin-top: 20px;
+    }
     .discord_link{
         color: aquamarine;
     text-decoration: none;
@@ -102,19 +111,32 @@ body {
     align-items: center;
     gap: 8px;
     }
-    .discord_link :hover{
-        color: rgb(53, 116, 95);
+    .discord_link:hover{
+        color: rgb(23, 121, 88);
         gap: 6px;
-        transition: 1s;
+        text-decoration: underline;
+        font-size: 1.2rem;
+        transition: 0.2s;
     }
     .discord_logo{
         width: calc(90.92px / 2 );
         height: calc(102.452px / 2 );
     }
+    .discord_logo:hover{
+        text-decoration: underline;
+        transform: scale(1.2);
+        transition: transform 0.2s ease;
+    }
     .biographie{
+        margin-top: 3vh;
+        margin-bottom: 3vh;
+        background-color: rgb(2, 39, 39);
         opacity: 0;
         text-align: center;
-        padding: 4rem;
+        padding-bottom: 4rem;
+        margin-left: 3%;
+        margin-right: 3%;
+        border-radius: 2rem;
     }
     .biographie h4{
         color: beige;
@@ -127,10 +149,10 @@ body {
         opacity: 0;
         -webkit-user-drag: none;
     }
-    .feurbotlogo :hover{
+    .feurbotlogo:hover{
         text-decoration: none;
-        border-radius: 2%;
-        transform: scale(0.95);
+        border-radius: 3rem;
+        transform: scale(1);
         color:rgb(60, 134, 107);
         text-decoration: none;
         transition: 0.2s;
@@ -159,7 +181,12 @@ body {
 
 
     <footer class="footer">
-        © 2025 FeurBot • Créé par Fox8a7 • <a href="https://discord.gg/4VpcKjqGf7" target="_blank" class="discord_link">Serveur Discord<img src="./pic/discord_logo.png" alt="discord_icon" class="discord_logo"></a>
+        © 2025 FeurBot • Créé par Fox8a7 
+        <br> 
+        <a style="margin-top: 1rem;" href="https://discord.gg/4VpcKjqGf7" target="_blank" class="discord_link">Serveur Discord <br><img src="./pic/discord_logo.png" alt="discord_icon" class="discord_logo"></a>
+        <br>
+        <a class="bmac" href="https://www.buymeacoffee.com/fox8a7" target="_blank"> ☕ Supporte-moi sur Buy me a coffee
+  </a>
     </footer>
 
 </body>
@@ -200,4 +227,3 @@ body {
 
     
 </script>
-<script class="footer, buymeacoffee" data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="fox8a7" data-description="Support me on Buy me a coffee!" data-message="" data-color="#5F7FFF" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
