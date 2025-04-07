@@ -75,17 +75,15 @@ body {
     .feurbottitle {
         font-family: Arial, Helvetica, sans-serif;
         margin: auto;
+        margin-top: 5vh;
+        margin-bottom: 2.5vh;
         display:block;
         justify-content: center;
         font-size: 4rem;
         color:aquamarine;
-        cursor:pointer; 
+        cursor:auto; 
         -webkit-user-drag: none;
         user-select: none;
-    }
-    .feurbottitle a {
-        text-decoration: none;
-        color: currentColor;
     }
     .footer {
     text-align: center;
@@ -103,15 +101,23 @@ body {
     text-decoration: none;
     font-family: sans-serif;
     margin-top: 20px;
+    transition: 0.2s;
     }
+    .bmac:hover{
+        background-color: #4469ff;
+        border-radius: 18px;
+        transition: 0.2s;
+    }
+
     .discord_link{
         color: aquamarine;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
     gap: 8px;
+    transition: 0.2s;
     }
-    .discord_link:hover{
+    .discord_text:hover{
         color: rgb(23, 121, 88);
         gap: 6px;
         text-decoration: underline;
@@ -121,6 +127,7 @@ body {
     .discord_logo{
         width: calc(90.92px / 2 );
         height: calc(102.452px / 2 );
+        transition: 0.2s ease-in-out;
     }
     .discord_logo:hover{
         text-decoration: underline;
@@ -140,6 +147,43 @@ body {
     }
     .biographie h4{
         color: beige;
+    }
+    .commandes{
+        margin-top: 3vh;
+        margin-bottom: 3vh;
+        background-color: rgb(2, 39, 39);
+        opacity: 0;
+        text-align: center;
+        padding-bottom: 4rem;
+        margin-left: 3%;
+        margin-right: 3%;
+        border-radius: 2rem; 
+    }
+    .commandes h1{
+        transform: scale(1.3);
+    }
+    .commandess{
+        display: flex;
+    }
+
+    .commandesname {
+        font-size: larger;
+        line-height: 2;
+        padding-left: 20%;
+        text-align: left;
+        color: beige;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        border-radius: 2rem;
+        height: max-content;
+    }
+    .commandesdesc{
+        line-height: 2.46;
+        height: max-content;
+        padding-left: 5%;
+        border-radius: 2rem;
+        text-align: left;
+        
     }
     .feurbotlogo{
         width: 20rem;
@@ -176,6 +220,46 @@ body {
         <h1>Qu'est ce  que c'est ?</h1>
         <h4>Feur Bot est un bot Discord qui ajoute la touche de fun manquante à votre serveur</h4>
     </div>
+    <div class="commandes" id = "commandes">
+        <h1>Les commandes:</h1>
+        <div class="commandess">
+            <p class="commandesname">
+                /activer-feur:
+                <br>
+               /help:
+                <br>
+               /immuniser:
+                <br>
+                /imune-list:
+                <br>
+                /non-immuniser:
+                <br>
+               /oui-stiti:
+                <br>
+                /quoicoubeh:
+                <br>
+               /setfeur:
+            </p>
+            <p class="commandesdesc">
+                Permet d'activer/désactiver Feur Bot sur votre serveur
+                <br>
+                Montre les fonctionnalité de FeurBot
+                <br>
+                Permet d'immuniser un membre au
+                <br>
+                Donne la liste de ceux qui sont immunisés
+                <br>
+                Permet de ne plus immuniser un membre 
+                <br>
+                Permettre à FeurBot de répondre "stiti" quand un utilisateur dit le mot "oui"
+                <br>
+                Permet d'activer/désactiver les réponses aux quoicoubeh
+                <br>
+                Permet de choisir si le bot envoie un feur sous forme de GIF ou du simple texte
+            </p>
+        </div>
+
+    </div>
 
 
 
@@ -183,7 +267,7 @@ body {
     <footer class="footer">
         © 2025 FeurBot • Créé par Fox8a7 
         <br> 
-        <a style="margin-top: 1rem;" href="https://discord.gg/4VpcKjqGf7" target="_blank" class="discord_link">Serveur Discord <br><img src="./pic/discord_logo.png" alt="discord_icon" class="discord_logo"></a>
+        <a style="margin-top: 1rem;" href="https://discord.gg/4VpcKjqGf7" target="_blank" class="discord_link"><span class="discord_text">Serveur Discord</span><img src="./pic/discord_logo.png" alt="discord_icon" class="discord_logo"></a>
         <br>
         <a class="bmac" href="https://www.buymeacoffee.com/fox8a7" target="_blank"> ☕ Supporte-moi sur Buy me a coffee
   </a>
@@ -195,7 +279,8 @@ body {
     const titre = document.getElementById('feurbottitle')
     const image = document.getElementById("imagefeur")
     const biogr = document.getElementById("biographie")
-    const listtofadedecal = [image, biogr]
+    const commande = document.getElementById("commandes")
+    const listtofadedecal = [image, biogr, commande]
     const clickSound = new Audio("sounds/feur.mp3")
     function playClickSound() {
         clickSound.currentTime = 0; // remet à zéro si le son est rejoué vite
