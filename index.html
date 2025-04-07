@@ -112,6 +112,7 @@ body {
         height: calc(102.452px / 2 );
     }
     .biographie{
+        opacity: 0;
         text-align: center;
         padding: 4rem;
     }
@@ -149,7 +150,7 @@ body {
 <body>
     <h2 class="feurbottitle" id="feurbottitle" >Feur Bot</h2>
     <img class="feurbotlogo" src="./pic/feur_logo.png" alt="FeurBotLogo.png" id="imagefeur" onclick="playClickSound(), gros()">
-    <div class="biographie">
+    <div class="biographie" id="biographie">
         <h1>Qu'est ce  que c'est ?</h1>
         <h4>Feur Bot est un bot Discord qui ajoute la touche de fun manquante à votre serveur</h4>
     </div>
@@ -166,6 +167,8 @@ body {
 <script>
     const titre = document.getElementById('feurbottitle')
     const image = document.getElementById("imagefeur")
+    const biogr = document.getElementById("biographie")
+    const listtofadedecal = [image, biogr]
     const clickSound = new Audio("sounds/feur.mp3")
     function playClickSound() {
         clickSound.currentTime = 0; // remet à zéro si le son est rejoué vite
@@ -179,12 +182,18 @@ body {
     })
     window.addEventListener("load",()=>{
         titre.classList.add("animatefeur")
-        setTimeout(()=>{image.classList.add("animatefeur")},1000 )
         setTimeout(()=>{
-        image.classList.remove("animatefeur")
-        image.classList.add("visible")
+            listtofadedecal.forEach(element=>{
+                element.classList.add("animatefeur")
+            })
+        },500 )
+        setTimeout(()=>{
+            listtofadedecal.forEach(element=>{
+                element.classList.remove("animatefeur")
+                element.classList.add("visible")
+            })
         titre.classList.remove("animatefeur")
-        },2000)
+        },1500)
         
 
     })
