@@ -324,11 +324,8 @@ body, html {
     const image = document.getElementById("imagefeur")
     const biogr = document.getElementById("biographie")
     const commande = document.getElementById("commandes")
-
-    if (screen.width <= 600){
         window.alert(`Ton with d'écran: ${screen.width}`)
-        return
-    }
+
 
     const listtofadedecal = [image, biogr, commande]
     const clickSound = new Audio("sounds/feur.mp3")
