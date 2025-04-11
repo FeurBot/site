@@ -325,10 +325,11 @@ body, html {
     const biogr = document.getElementById("biographie")
     const commande = document.getElementById("commandes")
     
-    if (screen.width <= 600){
-        window.alert("Vous êtes sur mobile")
-        return
-    }
+    if (window.matchMedia("(max-width: 600px)").matches) {
+    alert("Vous êtes sur mobile");
+    return
+}
+
 
 
     const listtofadedecal = [image, biogr, commande]
