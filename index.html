@@ -320,18 +320,18 @@ body, html {
 </body>
 </html>
 <script>
+    window.addEventListener("load", () => {
+    if (window.matchMedia("(max-width: 600px)").matches) {
+        window.alert("Vous êtes sur mobile");
+        return;
+    }})
+
+
     const titre = document.getElementById('feurbottitle')
     const image = document.getElementById("imagefeur")
     const biogr = document.getElementById("biographie")
     const commande = document.getElementById("commandes")
     
-    if (window.matchMedia("(max-width: 600px)").matches) {
-    alert("Vous êtes sur mobile");
-    return
-}
-
-
-
     const listtofadedecal = [image, biogr, commande]
     const clickSound = new Audio("sounds/feur.mp3")
     function playClickSound() {
