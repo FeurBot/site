@@ -197,6 +197,7 @@ body, html {
             overflow-x: hidden;
             height: 100%;
             width: 100%;
+            max-width: 100%;
         }
         .feurbottitle{
             margin-top: 20px;
@@ -307,8 +308,6 @@ body, html {
           </div>
       </div>
 
-      <button onclick="debugWidth()">Test largeur</button>
-
 
 
     <footer class="footer">
@@ -323,13 +322,6 @@ body, html {
 </body>
 </html>
 <script>
-
-
-  function debugWidth() {
-    const larges = [...document.querySelectorAll('*')].filter(el => el.offsetWidth > window.innerWidth);
-    console.log(larges);
-    alert(`Nombre d'éléments trop larges : ${larges.length}`);
-  }
 
 
     const titre = document.getElementById('feurbottitle')
