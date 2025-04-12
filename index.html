@@ -345,6 +345,7 @@ body, html {
     },200)
     })
     window.addEventListener("load",()=>{
+        if (screen.width <= 600) return
         titre.classList.add("animatefeur")
         setTimeout(()=>{
             listtofadedecal.forEach(element=>{
