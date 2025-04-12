@@ -307,7 +307,7 @@ body, html {
           </div>
       </div>
 
-
+      <button onclick="debugWidth()">Test largeur</button>
 
 
 
@@ -323,6 +323,14 @@ body, html {
 </body>
 </html>
 <script>
+
+
+  function debugWidth() {
+    const larges = [...document.querySelectorAll('*')].filter(el => el.offsetWidth > window.innerWidth);
+    console.log(larges);
+    alert(`Nombre d'éléments trop larges : ${larges.length}`);
+  }
+
 
     const titre = document.getElementById('feurbottitle')
     const image = document.getElementById("imagefeur")
