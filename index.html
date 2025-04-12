@@ -192,6 +192,35 @@ body, html {
         transform: translateY(8px);
         
     }
+    .feurbotlogo{
+        box-sizing: content-box;
+        width: 20vw;
+        height: 20vw;
+        transition: 0.2s;
+        margin: 0 auto;
+        display: block;
+        border-radius: 5vw;
+        -webkit-user-drag: none;
+        opacity: 0;
+    }
+    .feurbotlogo:hover{
+        border-radius: 5vw;
+        text-decoration: none;
+        transform: scale(1);
+        color:rgb(60, 134, 107);
+        text-decoration: none;
+        transition: 0.2s;
+    }
+    .animate_shake_grow{
+        animation: shakeAndGrow 0.2s ease-in-out
+    }
+    .animatefeur{
+        animation: fadeInZoom 1s ease-in-out;
+    }
+    .visible{
+        opacity: 1;
+    }
+
     @media (max-width: 600px) {
         * {
             box-sizing: border-box;
@@ -259,34 +288,7 @@ body, html {
         overflow-wrap: break-word;
     }
     }
-    .feurbotlogo{
-        box-sizing: content-box;
-        width: 20vw;
-        height: 20vw;
-        transition: 0.2s;
-        margin: 0 auto;
-        display: block;
-        border-radius: 5vw;
-        -webkit-user-drag: none;
-        opacity: 0;
-    }
-    .feurbotlogo:hover{
-        border-radius: 5vw;
-        text-decoration: none;
-        transform: scale(1);
-        color:rgb(60, 134, 107);
-        text-decoration: none;
-        transition: 0.2s;
-    }
-    .animate_shake_grow{
-        animation: shakeAndGrow 0.2s ease-in-out
-    }
-    .animatefeur{
-        animation: fadeInZoom 1s ease-in-out;
-    }
-    .visible{
-        opacity: 1;
-    }
+    
 </style>
     
 </head>
