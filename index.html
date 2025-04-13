@@ -61,6 +61,55 @@
 
 }
 }
+
+@keyframes shake {
+
+0% {
+    transform: translateX(0);
+    transform: translateY(0) ;
+}
+10% {
+    transform: translateX(-5px) ;
+     
+}
+20% {
+    transform: translateX(5px) ;
+     
+}
+30% {
+    transform: translateX(-5px) ;
+     
+}
+40% {
+    transform: translateX(5px) ;
+     
+}
+50% {
+    transform: translateX(-5px) ;
+     
+}
+60% {
+    transform: translateX(5px) ;
+     
+}
+70% {
+    transform: translateX(-5px);
+     
+}
+80% {
+    transform: translateX(5px) ;
+     
+}
+90% {
+    transform: translateX(-5px) ;
+     
+}
+100% {
+    transform: translateX(0);
+    transform: translateY(0) ;
+
+}
+}
 body, html {
     margin: 0;
     padding: 0;
@@ -243,19 +292,33 @@ body, html {
     .add_bot a {
         font-family:Arial, Helvetica, sans-serif;
         text-decoration: none;
-        color: aqua;
+        color: rgb(255, 255, 255);
         font-size: 2rem;
-        background-color: #4469ff;
+        background-color: #002ad1;
         border-radius: 1rem;
         padding: 0.75rem;
-        display: inline-block;
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
         transform: scale(1);
         transition: 0.2s;
     }
+    .add_bot .discord_log {
+        width: calc(90.92px / 1.5 );
+        height: calc(102.452px / 1.5 );
+        display: inline-block;
+        transform: rotate(0deg);
+        padding-left: 0.5rem;
+    }
+    .add_bot a:hover .discord_log{
+        transform: rotate(360deg);
+        transition: 0.5s ease-in-out;
+    }
     .add_bot a:hover{
-        color: rgb(43, 122, 122);
+        animation: shake 1s infinite none;
+        color: rgb(255, 255, 255);
         background-color: #04229b;
-        transform: scale(1.55); /* Effet de zoom */
+        transform: scale(1.05); /* Effet de zoom */
         transition: 0.2s ease;
     }
     .animate_shake_grow{
@@ -387,7 +450,7 @@ body, html {
       </div>
       <div class="add_bot" id="add_bot">
         <h1>Ajoute le bot sur ton serveur</h1>
-        <a href="https://discord.com/oauth2/authorize?client_id=1219968568859426878">Ajouter le bot</a>
+        <a href="https://discord.com/oauth2/authorize?client_id=1219968568859426878" target="_blank">Ajouter Feur Bot <br> <img src="./pic/discord_logo.png" alt="discord.png" class="discord_log"></a>
       </div>
 
 
