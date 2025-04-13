@@ -228,6 +228,36 @@ body, html {
         position: sticky;
         font-size: xx-large;
     }
+    .add_bot{
+        opacity: 0;
+        text-align: center;
+        margin-block: 2%;
+        margin-inline: 30%;
+        justify-content: center;
+        align-items: center;
+        border-radius: 40px;
+        background-color: #09376b;
+        padding-top:1%;
+        padding-bottom:3%
+    }
+    .add_bot a {
+        font-family:Arial, Helvetica, sans-serif;
+        text-decoration: none;
+        color: aqua;
+        font-size: 2rem;
+        background-color: #4469ff;
+        border-radius: 1rem;
+        padding: 0.75rem;
+        display: inline-block;
+        transform: scale(1);
+        transition: 0.2s;
+    }
+    .add_bot a:hover{
+        color: rgb(43, 122, 122);
+        background-color: #04229b;
+        transform: scale(1.55); /* Effet de zoom */
+        transition: 0.2s ease;
+    }
     .animate_shake_grow{
         animation: shakeAndGrow 0.2s ease-in-out
     }
@@ -313,7 +343,7 @@ body, html {
     <img class="feurbotlogo" src="./pic/feur_logo.png" alt="FeurBotLogo.png" id="imagefeur" onclick="playClickSound(), gros()">
     <div class="biographie" id="biographie">
         <h1>Qu'est ce  que c'est ?</h1>
-        <h4>Feur Bot est le bot Discord qui ajoute la touche de fun manquante à votre serveur</h4>
+        <h4>Feur Bot est le bot Discord qui ajoute la touche de fun manquante à votre serveur<br>Feur Bot vous répondra "Feur" à chaque fois que vous écrirez <span id="quoi_mal_ortho">"quoi"</span><br>Et bien plus encore...</h4>
     </div>
     <div class="commandes-container" id="commandes">
         <h1>Les commandes:</h1>
@@ -355,6 +385,10 @@ body, html {
         <span><h1 id="guild-count">...</h1></span>
         <h1>serveurs</h1>
       </div>
+      <div class="add_bot" id="add_bot">
+        <h1>Ajoute le bot sur ton serveur</h1>
+        <a href="https://discord.com/oauth2/authorize?client_id=1219968568859426878">Ajouter le bot</a>
+      </div>
 
 
 
@@ -377,8 +411,9 @@ body, html {
     const biogr = document.getElementById("biographie")
     const commande = document.getElementById("commandes")
     const guildcount = document.getElementById("guildcount")
+    const add_bot = document.getElementById("add_bot")
     
-    const listtofadedecal = [guildcount,image, biogr, commande]
+    const listtofadedecal = [guildcount,image, biogr, commande,add_bot]
     const clickSound = new Audio("sounds/feur.mp3")
     function playClickSound() {
         clickSound.currentTime = 0; // remet à zéro si le son est rejoué vite
