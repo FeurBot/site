@@ -14,6 +14,10 @@
     <link rel="icon" href="./pic/feur_logo.png">
 
 <style>
+    @font-face {
+        font-family: "geoform";
+        src: url("fonts/Geoform-ExtraBold.otf") format("opentype");
+    }
     @keyframes fadeInZoom {
     0% {
         opacity: 0;
@@ -155,7 +159,8 @@ body, html {
     }
     .bmac:hover{
         background-color: #4469ff;
-        border-radius: 18px;
+        border-radius: 8px;
+        transform: scale(1.05);
         transition: 0.2s;
     }
 
@@ -277,6 +282,10 @@ body, html {
         position: sticky;
         font-size: xx-large;
     }
+    .add_bot_background{
+        opacity: 0;
+        background-color: rgb(69, 134, 255);
+    }
     .add_bot{
         opacity: 0;
         text-align: center;
@@ -285,30 +294,77 @@ body, html {
         justify-content: center;
         align-items: center;
         border-radius: 40px;
-        background-color: #09376b;
+        background-color: #303136;
         padding-top:1%;
-        padding-bottom:3%
+        padding-bottom:3%;
+        padding-inline: 5%;
+        display: flex;
+        flex-direction: column;
+        -webkit-user-drag: none;
+        font-family:"geoform";
+    }
+    .add_bot img{
+        width: 100px;
+        height: 100px;
+        border-radius: 100%;
+        margin-bottom: 2%;
     }
     .add_bot a {
-        font-family:Arial, Helvetica, sans-serif;
         text-decoration: none;
         color: rgb(255, 255, 255);
-        font-size: 2rem;
+        font-size: clamp(1.5rem, 3vw, 2.5rem);
         background-color: #002ad1;
         border-radius: 1rem;
-        padding: 0.75rem;
+        padding: 0.75%;
         display: inline-flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
         transform: scale(1);
         transition: 0.2s;
     }
     .add_bot .discord_log {
-        width: calc(90.92px / 1.5 );
-        height: calc(102.452px / 1.5 );
+        width:  calc(88.74px / 1.5);
+        height: calc(100px / 1.5 );
         display: inline-block;
         transform: rotate(0deg);
         padding-left: 0.5rem;
+    }
+    .add_bot a .left-arrow{
+        position:absolute ;
+        pointer-events: none;
+        width: calc(474px/ 4.5);
+        height: calc(357px/ 4.5);
+        position:fixed;
+        rotate: 180deg;
+        transform:  translateX(200px);
+        left: 10%;
+        transition: 0.2s;
+    }
+    .add_bot a .right-arrow{
+        pointer-events: none;
+        width: calc(474px/ 4.5);
+        height: calc(357px/ 4.5);
+        position:fixed;
+        rotate: 0;
+        transform:  translateX(200px);
+        right: 10%;
+        transition: 0.2s;
+    }
+    .add_bot a:hover .left-arrow{
+        filter:brightness(50%);
+        color: #002ad1;
+        width: calc(474px/ 6);
+        height: calc(357px/ 6);
+        transform:  translateX(150px);;
+        transition: 0.2s;
+    }
+    .add_bot a:hover .right-arrow{
+        filter:brightness(50%);
+        width: calc(474px/ 6);
+        height: calc(357px/ 6);
+        transform:  translateX(150px);
+        transition: 0.2s;
     }
     .add_bot a:hover .discord_log{
         transform: rotate(360deg);
@@ -321,6 +377,7 @@ body, html {
         transform: scale(1.05); /* Effet de zoom */
         transition: 0.2s ease;
     }
+    
     .animate_shake_grow{
         animation: shakeAndGrow 0.2s ease-in-out
     }
@@ -448,10 +505,13 @@ body, html {
         <span><h1 id="guild-count">...</h1></span>
         <h1>serveurs</h1>
       </div>
-      <div class="add_bot" id="add_bot">
-        <h1>Ajoute le bot sur ton serveur</h1>
-        <a href="https://discord.com/oauth2/authorize?client_id=1219968568859426878" target="_blank">Ajouter Feur Bot <br> <img src="./pic/discord_logo.png" alt="discord.png" class="discord_log"></a>
+      <div class="add_bot_background" id="add_bot_background">
+        <div class="add_bot" id="add_bot">
+           <img src="./pic/feur_logo.png" alt="FeurBotlogo.png">
+            <a href="https://discord.com/oauth2/authorize?client_id=1219968568859426878" target="_blank">Ajouter Feur Bot <br> <img src="./pic/discord_logo.png" alt="discord.png" class="discord_log"> <img src="./pic/arrow_cyan.png" alt="left-arrow" class="left-arrow"><img src="./pic/arrow_cyan.png" alt="right-arrow" class="right-arrow"></a>
+          </div>
       </div>
+
 
 
 
@@ -475,8 +535,9 @@ body, html {
     const commande = document.getElementById("commandes")
     const guildcount = document.getElementById("guildcount")
     const add_bot = document.getElementById("add_bot")
+    const add_bot_background = document.getElementById("add_bot_background")
     
-    const listtofadedecal = [guildcount,image, biogr, commande,add_bot]
+    const listtofadedecal = [guildcount,image, biogr, commande,add_bot,add_bot_background]
     const clickSound = new Audio("sounds/feur.mp3")
     function playClickSound() {
         clickSound.currentTime = 0; // remet à zéro si le son est rejoué vite
