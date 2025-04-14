@@ -563,17 +563,20 @@ body, html {
             })
         titre.classList.remove("animatefeur")
         },1500)
-        fetch('https://proxy-production-41a5.up.railway.app/guilds')
-  .then(res => res.json())
-  .then(data => {
-    document.getElementById('guild-count').textContent = `${data.guildCount}`;
-  })
-  .catch(err => {
-    console.error("Erreur de récupération du nombre de serveurs :", err);
-    document.getElementById('guild-count').textContent = `${err}`;
-  });
-    })
 
+
+    })
+    setInterval(()=>{
+            fetch('https://proxy-production-41a5.up.railway.app/guilds')
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById('guild-count').textContent = `${data.guildCount}`;
+            })
+            .catch(err => {
+                console.error("Erreur de récupération du nombre de serveurs :", err);
+                document.getElementById('guild-count').textContent = `${err}`;
+            });
+        },1000)
 
     
 </script>
