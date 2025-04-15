@@ -303,11 +303,11 @@ body, html {
         -webkit-user-drag: none;
         font-family:"geoform";
     }
-    .add_bot img{
+    .add_bot .feurbot_logo_addbot {
         width: 100px;
         height: 100px;
         border-radius: 100%;
-        margin-bottom: 2%;
+        margin-bottom: 10%;
     }
     .add_bot a {
         text-decoration: none;
@@ -377,7 +377,14 @@ body, html {
         transform: scale(1.05); /* Effet de zoom */
         transition: 0.2s ease;
     }
-    
+    .videopresentation{
+        color: aliceblue;
+        font-size: 3vw;
+        margin-top: 3px;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+    }
     .animate_shake_grow{
         animation: shakeAndGrow 0.2s ease-in-out
     }
@@ -507,9 +514,13 @@ body, html {
       </div>
       <div class="add_bot_background" id="add_bot_background">
         <div class="add_bot" id="add_bot">
-           <img src="./pic/feur_logo.png" alt="FeurBotlogo.png">
+           <img src="./pic/feur_logo.png" alt="FeurBotlogo.png" class="feurbot_logo_addbot">
             <a href="https://discord.com/oauth2/authorize?client_id=1219968568859426878" target="_blank">Ajouter Feur Bot <br> <img src="./pic/discord_logo.png" alt="discord.png" class="discord_log"> <img src="./pic/arrow_cyan.png" alt="left-arrow" class="left-arrow"><img src="./pic/arrow_cyan.png" alt="right-arrow" class="right-arrow"></a>
           </div>
+      </div>
+      <div class="videopresentation">
+        <h1>Vidéo de présentation</h1>
+        <iframe height="640" width="360" src="https://youtube.com/embed/fdQM9leBimg?si=BpsHI2LxL5je8fEY" frameborder="0"></iframe>
       </div>
 
 
