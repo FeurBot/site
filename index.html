@@ -406,6 +406,9 @@ body, html {
     }
 
     @media (max-width: 600px) {
+        *:hover{
+            transition-delay: 9999999s;
+        }
         * {
             box-sizing: border-box;
         }
@@ -599,7 +602,6 @@ body, html {
 
 
     })
-    window.alert(`La dimanesion ou ça bug:${screen.availWidth}`)
     setInterval(()=>{
             fetch('https://proxy-production-41a5.up.railway.app/guilds')
             .then(res => res.json())
