@@ -120,14 +120,28 @@ body, html {
     height: 100%;
     width: 100%;
     overflow-x: hidden;
+    scrollbar-width:none;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     background-color: rgb(0, 17, 39);
     color: aquamarine;
     font-family: Arial, Helvetica, sans-serif;
-}
+}   
+    .loading{
+        position:fixed;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        left: 50%;
+        top: 40%;
+       font-size: 400%;
+        z-index: 99;
+        color: #303136;
+        font-family:"geoform"
+       
+    }
     .feurbottitle {
+        opacity: 0;
         font-family: Arial, Helvetica, sans-serif;
        text-align: center;
         margin-top: 2.5%;
@@ -202,8 +216,13 @@ body, html {
         max-width: 94%;
         border-radius: 2rem;
     }
-    .biographie h4{
+    .biographie p{
         color: beige;
+        font-size: larger;
+    }
+    .biographie span{
+        color: rgb(46, 248, 255);
+        font-size: larger;
     }
     .commandes-container{
         margin-top: 3vh;
@@ -405,6 +424,10 @@ body, html {
     .visible{
         opacity: 1;
     }
+    .invisible{
+        opacity: 0;
+        z-index: -2;
+    }
 
     @media (max-width: 600px) {
         *:hover{
@@ -491,11 +514,12 @@ body, html {
     
 </head>
 <body>
+    <h1 class="loading" id="loading">Chargement ...</h1>
     <h2 class="feurbottitle" id="feurbottitle" >Feur Bot</h2>
     <img class="feurbotlogo" src="./pic/feur_logo.png" alt="FeurBotLogo.png" id="imagefeur" onclick="playClickSound(), gros()">
     <div class="biographie" id="biographie">
         <h1>Qu'est ce  que c'est ?</h1>
-        <h4>Feur Bot est le bot Discord qui ajoute la touche de fun manquante à votre serveur<br>Feur Bot vous répondra "Feur" à chaque fois que vous écrirez <span id="quoi_mal_ortho">"quoi"</span><br>Et bien plus encore...</h4>
+        <p>Feur Bot est le bot Discord qui ajoute la touche de fun manquante à votre serveur<br>Feur Bot vous répondra <span onclick="playClickSound()">Feur</span> à chaque fois que vous écrirez <span id="quoi_mal_ortho">quoi</span><br>Et bien plus encore...</p>
     </div>
     <div class="commandes-container" id="commandes">
         <h1>Les commandes:</h1>
@@ -574,6 +598,9 @@ body, html {
     const add_bot = document.getElementById("add_bot")
     const add_bot_background = document.getElementById("add_bot_background")
     const videopresentation = document.getElementById("video_presentation")
+    const quoi_mal_ortho = document.getElementById('quoi_mal_ortho')
+
+    const chargement = document.getElementById('loading')
     
     const listtofadedecal = [guildcount,image, biogr, commande,add_bot,add_bot_background, videopresentation]
     const clickSound = new Audio("sounds/feur.mp3")
@@ -587,8 +614,17 @@ body, html {
         image.classList.remove("animate_shake_grow")        
     },200)
     })
+    let pointnumber = 1
+    setInterval(()=>{
+        chargement.textContent = `Chargement${".".repeat(pointnumber)}`
+        pointnumber ++
+        pointnumber == 4 ? pointnumber = 1 : null
+
+    },250)
     window.addEventListener("load",()=>{
+        chargement.classList.add("invisible")
         titre.classList.add("animatefeur")
+        titre.classList.add("visible")
         setTimeout(()=>{
             listtofadedecal.forEach(element=>{
                 element.classList.add("animatefeur")
@@ -599,10 +635,31 @@ body, html {
                 element.classList.remove("animatefeur")
                 element.classList.add("visible")
             })
+       
         titre.classList.remove("animatefeur")
+        
         },1500)
 
 
+    })
+    let interval = null
+    let index = 0
+    quoi_mal_ortho.addEventListener("mouseenter", ()=> {
+        const list =  ["quoi", "koi","cwa","quoua", "Pourquoi","pk", "qwa", "qoua", "kwoi", "kwa", "quouwa", "koa", "coi", "kwa", "kuwa", "kua","koua","qoi","couoie","cou oie","quouah","qouwaha","quwouhaha","quoiiiiiii","quois","kuoi","qoa","qwoi","qua","pq","quoi", "koi", "quoi" ,"kwa", "qwa" ,"kouwa","quоi","prq","quσi","q0u1","qu01","quwa","kowa","cuoi","quio","quwa"]
+        interval = setInterval(()=>{
+            quoi_mal_ortho.textContent = list[index].toLowerCase()
+            index ++
+            if (index == list.length){
+                index = 0
+            }
+        }, 500)
+    })
+    quoi_mal_ortho.addEventListener("mouseleave", ()=>{
+        setTimeout(()=>{
+            quoi_mal_ortho.textContent = "quoi"
+        }, 200)
+        clearInterval(interval)
+        interval = null
     })
     setInterval(()=>{
             fetch('https://proxy-production-41a5.up.railway.app/guilds')
