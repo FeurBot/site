@@ -128,20 +128,7 @@ body, html {
     color: aquamarine;
     font-family: Arial, Helvetica, sans-serif;
 }   
-    .loading{
-        position:fixed;
-        transform: translate(-50%, -50%);
-        text-align: center;
-        left: 50%;
-        top: 40%;
-       font-size: clamp(200%,3vw,400%);
-        z-index: 99;
-        color: #303136;
-        margin-inline: 4vw;
-        max-width: 92vw;
-        font-family:"geoform"
-       
-    }
+
     .feurbottitle {
         opacity: 0;
         font-family: Arial, Helvetica, sans-serif;
@@ -516,7 +503,6 @@ body, html {
     
 </head>
 <body>
-    <h1 class="loading" id="loading">Chargement ...</h1>
     <h2 class="feurbottitle" id="feurbottitle" >Feur Bot</h2>
     <img class="feurbotlogo" src="./pic/feur_logo.png" alt="FeurBotLogo.png" id="imagefeur" onclick="playClickSound(), gros()">
     <div class="biographie" id="biographie">
@@ -602,7 +588,6 @@ body, html {
     const videopresentation = document.getElementById("video_presentation")
     const quoi_mal_ortho = document.getElementById('quoi_mal_ortho')
 
-    const chargement = document.getElementById('loading')
     
     const listtofadedecal = [guildcount,image, biogr, commande,add_bot,add_bot_background, videopresentation]
     const clickSound = new Audio("sounds/feur.mp3")
@@ -616,13 +601,6 @@ body, html {
         image.classList.remove("animate_shake_grow")        
     },200)
     })
-    let pointnumber = 1
-    setInterval(()=>{
-        chargement.textContent = `Chargement${".".repeat(pointnumber)}`
-        pointnumber ++
-        pointnumber == 4 ? pointnumber = 1 : null
-
-    },250)
     window.addEventListener("load",()=>{
         chargement.classList.add("invisible")
         titre.classList.add("animatefeur")
