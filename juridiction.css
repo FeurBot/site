@@ -1,0 +1,31 @@
+body{
+    background-color: rgb(50, 50, 51);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color:aliceblue;
+    margin-inline: 5%;
+    margin-right: 10%;
+}
+.goback{
+    position:absolute;
+    left: 85vw;
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    text-align: left;
+
+}
+.goback img{
+    display: flex;
+    width: 2rem;
+    height: 2rem;
+
+   box-sizing: content-box;
+   margin-top: 2vw;
+   margin-left: 1vw;
+   transform-origin: center;
+   transition: 0s ease;
+}
+.goback img:hover{
+transform: scale(1.5) rotate(360deg);
+transition: 0.4s ease;
+}
