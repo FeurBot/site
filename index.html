@@ -507,7 +507,7 @@ body, html {
     }
     .invisible{
         opacity: 0;
-        z-index: -2;
+        z-index: -2000000;
     }
 
     @media (max-width: 600px) {
@@ -608,6 +608,9 @@ body, html {
     }
     .add_bot a .right-arrow{
         opacity: 0;
+    }
+    .videopresentation{
+        font-size: 1em;
     }
     .videopresentation iframe{
         justify-content: center;
@@ -783,21 +786,23 @@ body, html {
     document.getElementById("feedbacktext").addEventListener("focus", ()=>{
         document.getElementById("feedbacktext").placeholder = "Votre avis..."
         const button = document.getElementById("feedbackbutton")
-        button.classList.add("feedback_slide")
+       button.classList.add("feedback_slide")
         
     })
     document.getElementById("feedbacktext").addEventListener("focusout", ()=>{
         document.getElementById("feedbacktext").placeholder = "Votre avis compte !"
         const button = document.getElementById("feedbackbutton")
-        button.classList.remove("feedback_slide")
+       button.classList.remove("feedback_slide")
     })
     setInterval(()=>{
         if (document.getElementById("feedbacktext").value){
-            document.getElementById("feedbackbutton").style.transitionDuration = 0.2
+            document.getElementById("feedbackbutton").style.zIndex = 9 
+           document.getElementById("feedbackbutton").style.transitionDuration = 0.2
             document.getElementById("feedbackbutton").classList.remove("invisible") 
             document.getElementById("feedbackbutton").classList.add("visible")
-            document.getElementById("feedbackbutton").style.zIndex = 9           
+                      
         }else{
+            document.getElementById("feedbackbutton").classList.remove("visible") 
             document.getElementById("feedbackbutton").classList.add("invisible") 
             document.getElementById("feedbackbutton").style.transitionDuration = 0.2
         }
