@@ -776,13 +776,15 @@ body, html {
         listtofadedecal.forEach(element=>{
             element.classList.add("animatefeur")
         })
-        titre.classList.remove("animatefeur")
-        titre.classList.add("visibles")
+        
         setTimeout(()=>{
             listtofadedecal.forEach(element=>{
                 element.classList.remove("animatefeur")
                 element.classList.add("visible")
             })
+       
+        titre.classList.remove("animatefeur")
+        titre.classList.add("visibles")
         
         },750)
 
