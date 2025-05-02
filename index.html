@@ -762,7 +762,7 @@ body, html {
     const listtofadedecal = [guildcount,image, biogr, commande,add_bot,add_bot_background, videopresentation]
     const clickSound = new Audio("sounds/feur.mp3")
     function playClickSound() {
-        clickSound.currentTime = 0; // remet à zéro si le son est rejoué vite
+        clickSound.currentTime = 0;
         clickSound.play();
     }
     image.addEventListener("click", ()=>{
@@ -866,11 +866,5 @@ body, html {
             titre.style.fontSize = taillefeur+"px"
             requestAnimationFrame(resizeTitle)
     }
-    function animateslidefeurtitle(){
-        const slidedistance = titre.clientWidth 
-
-
-    }
-    animateslidefeurtitle()
     
 </script>
