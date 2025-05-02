@@ -732,7 +732,7 @@ body, html {
         <br>
         © 2025 FeurBot • Créé par Fox8a7 
         <br> 
-        <a style="margin-top: 1rem;" href="https://discord.gg/4VpcKjqGf7" target="_blank" class="discord_link"><span class="discord_text">Serveur Discord</span><img src="./pic/discord_logo.png" alt="discord_icon" class="discord_logo"></a>
+        <a style="margin-top: 1rem;" href="/guild-invite" target="_blank" class="discord_link"><span class="discord_text">Serveur Discord</span><img src="./pic/discord_logo.png" alt="discord_icon" class="discord_logo"></a>
         <br>
         <div class="juridiction">
             <a href="/conditions-utilisation">Conditions d'utilisation</a>
@@ -762,7 +762,7 @@ body, html {
     const listtofadedecal = [guildcount,image, biogr, commande,add_bot,add_bot_background, videopresentation]
     const clickSound = new Audio("sounds/feur.mp3")
     function playClickSound() {
-        clickSound.currentTime = 0; // remet à zéro si le son est rejoué vite
+        clickSound.currentTime = 0;
         clickSound.play();
     }
     image.addEventListener("click", ()=>{
@@ -866,11 +866,5 @@ body, html {
             titre.style.fontSize = taillefeur+"px"
             requestAnimationFrame(resizeTitle)
     }
-    function animateslidefeurtitle(){
-        const slidedistance = titre.clientWidth 
-
-
-    }
-    animateslidefeurtitle()
     
 </script>
