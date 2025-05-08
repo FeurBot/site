@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="juridiction.css">
+    <title>Feur Bot Terms of Service</title>
+
+</head>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+        overflow-x: hidden;
+        scrollbar-width:none;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background-color: rgb(40, 118, 226);
+        color: aquamarine;
+        font-family: Arial, Helvetica, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }   
+    #gallery {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2vw;
+    }
+
+    #galleryImage {
+    max-width: 80vw;
+    max-height: 80vh;
+    border-radius: 10px;
+    transition: 0.3s ease-in-out;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    }
+    #prevBtn{
+      position: fixed;
+      left: 2vw;
+      transform: rotate(180deg);
+      width: 5vw;
+      height: auto;
+      min-width: 50px;
+      transition: 0.3s ease-in-out;
+    }
+    #nextBtn{
+      position: fixed;
+      right: 2vw;
+      width: 5vw;
+      height: auto;
+      min-width: 50px;
+      transition: 0.3s ease-in-out;
+    }
+    #prevBtn:hover{
+      transform: scale(1.2) rotate(180deg);
+      transition: 0.3s ease-in-out;
+    }
+    #nextBtn:hover{
+      transform: scale(1.2);
+      transition: 0.3s ease-in-out;
+    }
+    #device-choice{  
+        justify-items: center;
+        align-items: center;
+        align-self: center;
+        justify-self: center;
+    }
+    #device-choice h1{
+        font-size: 5rem;
+        line-break:strict;
+        word-break: keep-all;
+        text-align: center;
+        max-width: 100vw;
+    }
+    #device-choice a{
+        justify-items: center;
+        align-items: center;
+        font-size: 2vh;
+        border-color: rgb(0, 109, 73);
+        background-color: rgb(15, 15, 148);
+        border-style: solid;
+        border-radius: 2vw;
+        display: flex;
+        flex-direction: column;  
+        text-align: center;
+        transform: scale(1);
+        transition: 0.2s ease;
+        margin-left: 2vw;
+        padding-bottom: 2%;
+    }
+    #device-choice img {
+        max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    }
+    #device-choice a:hover{
+        cursor: pointer;
+        transform: scale(1.2);
+        transition: 0.5s ease;
+    }
+    #device-choice .mobile {
+        padding: 4.5vh;  
+        height: 21vh;
+        width: 21vh;
+        max-width: calc(50vw - 2vw); /* idem */
+    }
+    #device-choice .pc {  
+        height: 30vh;
+        width: 30vh;
+        max-width: calc(50vw - 2vw); /* idem */
+    }
+
+</style>
+<body>
+      <!-- Écran de choix -->
+  <div id="device-choice">
+    <h1>Vous utilisez Discord sur :</h1>
+    <div style="display: flex; gap: 5vw;margin-top: 10vh;">
+        <a  onclick="selectVersion('mobile')"><img class="mobile" src="./pic/mobile.png" alt="mobile.png">Mobile</a>
+        <a  onclick="selectVersion('desktop')"><img class="pc" src="./pic/pc.png" alt="pc.png">Ordinateur</a>
+    </div>
+  </div>
+
+  <!-- Galerie d'images -->
+  <div id="gallery" style="display:none;">
+    <img id="prevBtn" src="./pic/flèche.png" alt="flèche_gaucge.png" >
+    <img id="galleryImage" src="" alt="Étape du tutoriel" draggable="false">
+    <img id="nextBtn" src="./pic/flèche.png" alt="flèche_droite.png">
+  </div>
+
+</body>
+<script>
+    const images = {
+      mobile: [
+        'pic/mobile1.png',
+        'pic/mobile2.png',
+        'pic/mobile3.png'
+      ],
+      desktop: [
+        'pic/desktop1.png',
+        'pic/desktop2.png',
+        'pic/desktop3.png'
+      ]
+    };
+  
+    let currentVersion = null;
+    let currentIndex = 0;
+  
+    function selectVersion(version) {
+      currentVersion = version;
+      currentIndex = 0;
+      document.getElementById('device-choice').style.display = 'none';
+      document.getElementById('gallery').style.display = 'flex';
+      updateGallery();
+    }
+  
+    function updateGallery() {
+      const img = document.getElementById('galleryImage');
+      img.src = images[currentVersion][currentIndex];
+    }
+  
+    document.getElementById('prevBtn').addEventListener('click', () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+        updateGallery();
+      }
+    });
+  
+    document.getElementById('nextBtn').addEventListener('click', () => {
+      if (currentIndex < images[currentVersion].length - 1) {
+        currentIndex++;
+        updateGallery();
+      }
+    });
+  </script>
+  
+</html>
+
