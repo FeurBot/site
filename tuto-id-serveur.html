@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="juridiction.css">
-    <title>Feur Bot Terms of Service</title>
+    <title>Tuto identifiant serveur</title>
+    <link rel="icon" type="image/png" href="./pic/FeurBottechnique.png">
 
 </head>
 <style>
@@ -33,7 +33,7 @@
 
     #galleryImage {
     max-width: 80vw;
-    max-height: 80vh;
+    max-height: 45vh;
     border-radius: 10px;
     transition: 0.3s ease-in-out;
     box-shadow: 0 0 15px rgba(0,0,0,0.3);
@@ -92,6 +92,7 @@
         transform: scale(1);
         transition: 0.2s ease;
         margin-left: 2vw;
+        max-width: 40vw;
         padding-bottom: 2%;
     }
     #device-choice img {
@@ -115,13 +116,24 @@
         width: 30vh;
         max-width: calc(50vw - 2vw); /* idem */
     }
+    #paragraphe{
+      position: absolute;
+      top: 2vh;
+      text-align: center;
+      font-size: 4vh;
+      color: black;
+      padding: 2vw;
+      border-radius: 2vw;
+      background-color: aliceblue;
+
+    }
 
 </style>
 <body>
       <!-- Écran de choix -->
   <div id="device-choice">
     <h1>Vous utilisez Discord sur :</h1>
-    <div style="display: flex; gap: 5vw;margin-top: 10vh;">
+    <div style="display: flex; gap: 2.5vw;margin-top: 10vh;">
         <a  onclick="selectVersion('mobile')"><img class="mobile" src="./pic/mobile.png" alt="mobile.png" draggable="false">Mobile</a>
         <a  onclick="selectVersion('desktop')"><img class="pc" src="./pic/pc.png" alt="pc.png" draggable="false">Ordinateur</a>
     </div>
@@ -130,6 +142,7 @@
   <!-- Galerie d'images -->
   <div id="gallery" style="display:none;">
     <img id="prevBtn" src="./pic/flèche.png" alt="flèche_gaucge.png" draggable="false">
+    <p id="paragraphe">...</p>
     <img id="galleryImage" src="" alt="Étape du tutoriel" draggable="false">
     <img id="nextBtn" src="./pic/flèche.png" alt="flèche_droite.png" draggable="false">
   </div>
@@ -148,6 +161,19 @@
         'pic/Desktop3.png'
       ]
     };
+
+    const paragraphe = {
+      mobile: [
+        'Mobile 1',
+        'Mobile 2',
+        'Mobile 3'
+      ],
+      desktop: [
+        'Sélectionner votre serveur et faites un clique droit dessus',
+        'Ensuite, sur sélectionner "Copier l\'identifiant du serveur"',
+        'Vous avez désormais l\'identifiant du serveur dans votre presse papier !'
+      ]
+    }
   
     let currentVersion = null;
     let currentIndex = 0;
@@ -163,6 +189,8 @@
     function updateGallery() {
       const img = document.getElementById('galleryImage');
       img.src = images[currentVersion][currentIndex];
+      const para = document.getElementById('paragraphe')
+      para.textContent = `${paragraphe[currentVersion][currentIndex]}`
     }
   
     document.getElementById('prevBtn').addEventListener('click', () => {
