@@ -41,11 +41,11 @@
     #prevBtn{
       position: fixed;
       left: 2vw;
-      transform: rotate(180deg);
+      rotate: 180deg;
       width: 5vw;
       height: auto;
       min-width: 50px;
-      transition: 0.3s ease-in-out;
+      transition: 0.2s ease;
     }
     #nextBtn{
       position: fixed;
@@ -53,15 +53,12 @@
       width: 5vw;
       height: auto;
       min-width: 50px;
-      transition: 0.3s ease-in-out;
+      transition: 0.2s ease;
     }
-    #prevBtn:hover{
-      transform: scale(1.2) rotate(180deg);
-      transition: 0.3s ease-in-out;
-    }
-    #nextBtn:hover{
-      transform: scale(1.2);
-      transition: 0.3s ease-in-out;
+
+    .arrowclicked{
+      transform: scale(0.9) !important;
+      transition: transform 0.1s ease !important;
     }
     #device-choice{  
         justify-items: center;
@@ -195,15 +192,21 @@
       const para = document.getElementById('paragraphe')
       para.textContent = `${paragraphe[currentVersion][currentIndex]}`
     }
-  
-    document.getElementById('prevBtn').addEventListener('click', () => {
+    function animateClick(button) {
+    button.classList.add('arrowclicked');
+    setTimeout(() => {
+      button.classList.remove('arrowclicked');
+    }, 200); // 200ms = 0.2s
+  }
+    document.getElementById('prevBtn').addEventListener('click', (e) => {    
+       animateClick(e.target);
       if (currentIndex > 0) {
         currentIndex--;
         updateGallery();
       }
     });
-  
-    document.getElementById('nextBtn').addEventListener('click', () => {
+    document.getElementById('nextBtn').addEventListener('click', (e) => {
+       animateClick(e.target);
       if (currentIndex < images[currentVersion].length - 1) {
         currentIndex++;
         updateGallery();
