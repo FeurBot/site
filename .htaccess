@@ -1,2 +1,5 @@
+Redirect 301 /invite https://discord.com/oauth2/authorize?client_id=1219968568859426878&permissions=277028916288&integration_type=0&scope=bot+applications.commands
 Redirect 301 /invite.html https://discord.com/oauth2/authorize?client_id=1219968568859426878&permissions=277028916288&integration_type=0&scope=bot+applications.commands
+
+Redirect 301 /guild-invite https://discord.gg/4VpcKjqGf7
 Redirect 301 /guild-invite.html https://discord.gg/4VpcKjqGf7
