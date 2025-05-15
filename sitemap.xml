@@ -1,37 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-
-  <url>
-    <loc>https://feurbot.fr</loc>
-  </url>
-
-  <url>
-    <loc>https://feurbot.fr/conditions-utilisation</loc>
-  </url>
-
-  <url>
-    <loc>https://feurbot.fr/politique-de-confidentialité</loc>
-  </url>
-
-  <url>
-    <loc>https://feurbot.fr/terms-of-services</loc>
-  </url>
-
-  <url>
-    <loc>https://feurbot.fr/privacy-policy</loc>
-  </url>
-
-  <!-- Page contenant la vidéo YouTube -->
-  <url>
-    <loc>https://feurbot.fr</loc>
-    <video:video>
-      <video:thumbnail_loc>https://img.youtube.com/vi/fdQM9leBimg/hqdefault.jpg</video:thumbnail_loc>
-      <video:title>Feur Bot - Présentation</video:title>
-      <video:description>Découvrez Feur Bot, un bot Discord qui répond "feur" automatiquement aux "quoi".</video:description>
-      <video:player_loc allow_embed="yes">https://www.youtube.com/embed/fdQM9leBimg</video:player_loc>
-      <video:publication_date>2025-01-18</video:publication_date>
-    </video:video>
-  </url>
-
-</urlset>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url>
+<loc>https://feurbot.fr</loc>
+</url>
+<url>
+<loc>https://feurbot.fr/conditions-utilisation</loc>
+</url>
+<url>
+<loc>https://feurbot.fr/politique-de-confidentialité</loc>
+</url>
+<url>
+<loc>https://feurbot.fr/terms-of-services</loc>
+</url>
+<url>
+<loc>https://feurbot.fr/privacy-policy</loc>
+</url>

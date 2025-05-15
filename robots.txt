@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://feurbot.fr/sitemap.xml
