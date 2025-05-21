@@ -471,68 +471,6 @@ body, html {
         margin-inline: 1%;
         max-width: 98%;
     }
-    #feedbacktext{
-        position: relative;
-        margin-block: 3vh;
-        border-radius: 3vw;
-        padding: 1%;
-        width: 50vw;
-        max-width: 50vw;
-        height: 3.2vh;
-        outline:none;
-        border-color: #111;
-        background-color: #303136;
-        font-size:medium;
-        color: white;
-        font-family:Arial, Helvetica, sans-serif;
-        text-align: left;
-        resize: none;
-        z-index: 10;
-        transition: 0.3s ease;
-    }
-    #feedbacktext:focus{
-        height: 20vh;
-        padding: 1%;
-        padding-top: 1.5%;
-        padding-bottom: 0.5%;
-        justify-content: center;
-    }
-    .feedback_container {
-    position: relative;
-    overflow: hidden; /* pour cacher ce qui dépasse */
-}
-    .feedback{
-        opacity: 0;
-        margin-right: 20vw;
-        overflow: hidden;
-        border-radius: 3vw;
-        border-style: solid;
-        background-color: #002ad1;
-        border-color: #04229b;
-        font-family: "geoform";
-        font-size:1rem ;
-        text-align: center;
-        justify-content: center;
-        position:absolute;
-        justify-items: center;
-        top: 3.2vh;
-        left: 77vw;
-        z-index: 2;
-        width: 20vw;
-        height: 6vh;
-        transform: scale(0.8);
-        transition: 0.3s ease;
-    }
-    .feedback:hover{
-        background-color: #04103e;
-        border-color: #040f3a;
-        transform: scale(0.9);
-        transition: 0.3s ease;
-    }
-    .feedback_slide{
-        translate: 0vh 8vh;
-        transition: 0.5s ease;
-    }
     .juridiction a{
         background-size:contain;
         position: static;
@@ -727,11 +665,6 @@ body, html {
 
 
     <footer class="footer">
-        <div class="feedback_container">
-            <textarea type="text" placeholder="Votre avis compte" id="feedbacktext"></textarea>
-            <button class="feedback" onclick="sendFeedback()" id="feedbackbutton">Envoyer</button>
-        </div>
-        <br>
         © 2025 FeurBot • Créé par Fox8a7 
         <br> 
         <a style="margin-top: 1rem;" href="/guild-invite" target="_blank" class="discord_link"><span class="discord_text">Serveur Discord</span><img src="./pic/discord_logo.png" alt="discord_icon" class="discord_logo"></a>
@@ -825,44 +758,6 @@ body, html {
             });
         },1000)
 
-    document.getElementById("feedbacktext").addEventListener("focus", ()=>{
-        document.getElementById("feedbacktext").placeholder = "Votre avis..."
-        const button = document.getElementById("feedbackbutton")
-       button.classList.add("feedback_slide")
-        
-    })
-    document.getElementById("feedbacktext").addEventListener("focusout", ()=>{
-        document.getElementById("feedbacktext").placeholder = "Votre avis compte !"
-        const button = document.getElementById("feedbackbutton")
-       button.classList.remove("feedback_slide")
-    })
-    setInterval(()=>{
-        if (document.getElementById("feedbacktext").value){
-            document.getElementById("feedbackbutton").style.zIndex = 9 
-           document.getElementById("feedbackbutton").style.transitionDuration = 0.2
-            document.getElementById("feedbackbutton").classList.remove("invisible") 
-            document.getElementById("feedbackbutton").classList.add("visible")
-                      
-        }else{
-            document.getElementById("feedbackbutton").classList.remove("visible") 
-            document.getElementById("feedbackbutton").classList.add("invisible") 
-            document.getElementById("feedbackbutton").style.transitionDuration = 0.2
-        }
-    },100)
-    function sendFeedback(){
-        const messageFeedback = document.getElementById("feedbacktext").value
-        fetch("https://discord.com/api/webhooks/1362817726782902282/6ngI4BMf0TzFAfKN9kwpGYk2CM5-DJyo5hDnnHSirt-gXqifUWy-eXwiumzSvovBAv6b", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            content: messageFeedback
-        })
-        })
-        document.getElementById("feedbacktext").value = null
-        alert("Merci pour votre avis !")
-    }
     function resizeTitle(){
             let taillefeur = image.clientWidth / 2
             titre.style.fontSize = taillefeur+"px"
