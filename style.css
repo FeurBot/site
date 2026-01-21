@@ -1,0 +1,42 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f6f8;
+  color: #333;
+}
+
+header {
+  background: linear-gradient(135deg, #4f46e5, #6366f1);
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+
+main {
+  max-width: 900px;
+  margin: auto;
+  padding: 2rem;
+}
+
+article {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+h2 {
+  margin-top: 0;
+}
+
+.ad-container {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.9rem;
+  color: #666;
+}
