@@ -167,7 +167,9 @@ body, html {
     color: aquamarine;
     font-family: Arial, Helvetica, sans-serif;
 }   
-
+.wrapper {
+    position: relative;
+}
     .feurtitle{
         display:  flex;
         flex-direction: row;
@@ -298,6 +300,125 @@ body, html {
     .biographie span{
         color: rgb(46, 248, 255);
         font-size: larger;
+    }
+    .biographie p a{   
+        color: #ffffff;
+        transition: 0.2s;
+    }
+    .biographie p a:hover {
+        font-size: larger;
+        color: #80ffd9;
+        transition: 0.2s;
+    }
+    .input-gif{
+        margin-block: 3vh;
+        background-color: rgb(2, 39, 39);
+        opacity: 0;
+        align-self: center;
+        padding-bottom: 4rem;
+        margin-left: 3%;
+        margin-right: 3%;
+        max-width: 94%;
+        border-radius: 2rem;
+        padding-inline: 3%;
+        padding-top: 0%;
+        align-items: center;
+        justify-content: center;
+        align-content: center;
+        align-self: center;
+        text-align: center;
+    }
+    .input-gif input{
+        align-items: center;
+        align-self: center;
+    }
+    .input-file-text{
+        display: flex;
+        flex-direction: row;
+        flex-flow: 20px;
+        margin-bottom: 1vh;
+        justify-content: center;
+        column-gap: 2em;
+    }
+
+
+    .input-gif-text {
+        border-radius: 1%;
+        color: white;
+        padding: 1%;
+        background-color: #585858;
+        border: 1px solid #ccc;
+        margin-right: 0vw;
+        transition: 0.2s ease-in-out;
+        
+    }
+    .input-gif-text:focus{
+        color: black;
+        background-color: #ffffff;
+    }
+    .input-gif-text::placeholder{
+        color: white;
+    }
+    .input-gif-text:hover::placeholder{
+        color: rgb(70, 70, 70);
+        transition: 0.1s ease-in;
+    }
+    .input-gif-text:focus::placeholder{
+        color: black;
+    }
+    
+    .input-gif-label{
+        display: flex;
+        color: white;
+        border: 1px solid #ccc;
+        background-color: #585858;
+        cursor: pointer;
+        user-select: none;
+        padding-inline: 0.5rem;
+        align-items: center;
+        transition: 0.2s ease;
+    }
+    .input-gif-label:hover{
+        color: gray;
+    }
+    input[type="file"]{
+        display: none;
+    }
+    .input-gif-file {
+        background-color: antiquewhite;
+        transform: scale(10vh);
+        margin-left: 0vw;
+        border: 1px solid #ccc;
+        display: inline-block;
+        padding: 6px 12px;
+        cursor: pointer;
+    }
+    .input-gif img{
+        height: 5vw;
+        order: 1;
+    }
+    .input-gif-button {
+        border-style: none;
+        border-radius: 5px;
+        width: 30%;
+        justify-self: center;
+        display: flex;
+        background-color: #0004ee;
+        color: white;   
+        padding-block: 1.2vh;
+        border-color: #111;
+        font-family:"patrima";
+        font-size: larger;
+        transition: 0.2s ease-in;
+    }
+    .input-gif-button:hover {
+        color: #111;
+        background-color: #3437fc;
+    }
+    .input-gif-button:focus {
+        color: #575757;
+        background-color: #000247;
+        transition: 0s;
     }
     .commandes-container{
         margin-top: 3vh;
@@ -608,7 +729,21 @@ body, html {
    
     <div class="biographie" id="biographie">
         <h1>Qu'est ce  que c'est ?</h1>
-        <p>Feur Bot est le bot Discord qui ajoute la touche de fun manquante à votre serveur<br>Feur Bot vous répondra <span onclick="playClickSound()">Feur</span> à chaque fois que vous écrirez <span id="quoi_mal_ortho">quoi</span><br>Et bien plus encore...</p>
+        <p>Feur Bot est le bot Discord qui ajoute la touche de fun manquante à votre serveur<br>Feur Bot vous répondra <span onclick="playClickSound()">Feur</span> à chaque fois que vous écrirez <span id="quoi_mal_ortho">quoi</span><br>Il y a évidemment d'autres réponses que juste <span id="quoi_mal_ortho">quoi</span>. En effet il y a aussi les réponses à <span>oui</span>, <span>quoicoubeh</span> et plus encore... <br>Feur Bot est même capable de vous répondre en vocal quand vous écrivez <span id="quoi_mal_ortho">quoi</span> <br> D'autres mise à jour sont à venir alors pour ne rien rater, <a href="/guild-invite" style="text-decoration: underline; transition: 0.2s;">rejoignez le serveur Discord de Feurbot</a></p>
+    </div>
+    <div class="input-gif" id="input-gif" >
+        <h1>Propose ton gif</h1>
+        <p style="color: white;">Dans cette rubrique, tu peux envoyer ton gif et si ce dernier et retenu pour une prochaine mise à jour, tu sera crédité sur <a href="/guild-invite" style="text-decoration: underline; transition: 0.2s; color: white">le serveur Discord de Feurbot</a></p>
+        <div class="input-file-text">
+            <input class="input-gif-text" id="input-gif-text" type="text" placeholder="Nom d'utilisateur...">
+            <label for="input-gif-file" id="input-gif-label" class="input-gif-label">Sélectionner un fichier...</label>
+            <input class="input-gif-file" id="input-gif-file" type="file" accept=".gif" value="Gif à upload...">
+        </div>
+        
+        <div class="preview-gif"></div>
+
+        <input class="input-gif-button" id="input-gif-button" type="button" value="Soumettre">
+
     </div>
     <div class="commandes-container" id="commandes">
         <h1>Les commandes:</h1>
@@ -697,9 +832,10 @@ body, html {
     const add_bot_background = document.getElementById("add_bot_background")
     const videopresentation = document.getElementById("video_presentation")
     const quoi_mal_ortho = document.getElementById('quoi_mal_ortho')
+    const input_gif = document.getElementById('input-gif')
 
     
-    const listtofadedecal = [guildcount,image, biogr, commande,add_bot,add_bot_background, videopresentation]
+    const listtofadedecal = [guildcount,image, biogr, commande,add_bot,add_bot_background, videopresentation, input_gif]
     const clickSound = new Audio("sounds/feur.mp3")
     function playClickSound() {
         clickSound.currentTime = 0;
@@ -730,6 +866,105 @@ body, html {
 
 
     })
+    
+    async function sendw(file, username){
+        const formData = new FormData()
+
+        formData.append('payload_json', JSON.stringify({
+            username: "Salem",
+            content: username,
+            avatar_url : "https://i.imgur.com/KQRpWl1.png",
+            tts: true
+        }))
+        formData.append("file", file)
+    const reponse = await fetch(
+        ["/skoohbew/ipa/moc.drocsid//:sptth".split("").reverse().join(""), "1469758906770391204" , "mGj4OXWt1cAU8JSmjG-AAadI95K5uzhdSSQ2crUG3yklQolZ2LnCutwDA4fX-fOkMVLf".split('').reverse().join("")].join('/'),{
+            method: "POST",
+            body: formData
+        }
+    )
+    if (reponse.ok){
+        return true
+    }else{
+        return false
+    }
+}   
+    const button = document.getElementById('input-gif-button')
+    const label_gif = document.getElementById('input-gif-label')
+    button.addEventListener("click", (d) =>{
+
+        const username_gif = document.getElementById('input-gif-text').value
+        const file = document.getElementById('input-gif-file').files[0]
+
+        if (!file || !username_gif){
+            alert(`Veuillez entrer ${file ? "nom d'utilisateur" : username_gif ? "un gif" : "un nom d'utilisateur et un gif"} !`)
+            
+        }else{
+            if (sendw(file,username_gif)){
+                console.log("Envoie du gif")
+                alert("Gif envoyé, merci pour votre contribution !")
+            }else{
+                console.log("erreur lors de l'envoie du gif...")
+                alert("Erreur lors de l'envoie du gif... Veuillez ressayer")
+            }
+             document.getElementById('input-gif-text').value = ""
+             document.getElementById('input-gif-file').value = ""
+             
+            label_gif.style.color = "white"
+             while (preview.firstChild){
+                preview.removeChild(preview.firstChild)
+                
+            }
+        }
+        
+    })
+
+    const input = document.getElementById('input-gif-file')
+    const preview = document.querySelector('.preview-gif')
+
+    input.addEventListener("change", (file) => updateImageDisplay(file));
+    function updateImageDisplay(files) {
+        while (preview.firstChild){
+            preview.removeChild(preview.firstChild)
+        }
+        const file = files.srcElement?.files[0]
+        if (file == undefined){
+            label_gif.style.color = "white"
+            
+        }else{
+        const image_preview = document.createElement("img")
+        image_preview.src =  URL.createObjectURL(file)
+        image_preview.alt = file.name
+        
+        preview.appendChild(image_preview)
+        const label_gif = document.getElementById('input-gif-label')
+        label_gif.style.color = "gray"
+        }
+    }
+
+    input_gif.addEventListener("input", (thiss) => {
+      
+        const file = thiss.srcElement.files[0]
+        if (file.type != "image/gif"){
+            document.getElementById('input-gif-file').value = ""
+            label_gif.style.color = "white"
+            return alert(`Veuillez choisir un Gif `)
+        }
+        else if (file.size >= 10_000_000){
+            document.getElementById('input-gif-file').value = ""
+            label_gif.style.color = "white"
+            return alert(`Votre gif est trop lourd (max: 10MB)`)
+        }
+        
+        
+    })
+    const rect = document.getElementById('input-gif-file').getBoundingClientRect()
+    const img = document.createElement("img");
+    img.src = "./pic/pc.png";
+    img.alt = "Kids.png";
+    
+
+
     let interval = null
     resizeTitle()
     let index = 0
@@ -744,6 +979,7 @@ body, html {
             }
         }, 500)
     })
+
     quoi_mal_ortho.addEventListener("mouseleave", ()=>{
         setTimeout(()=>{
             quoi_mal_ortho.textContent = "quoi"
