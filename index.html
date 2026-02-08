@@ -717,6 +717,25 @@ body, html {
         margin-inline: 4%;
         max-width: 92%;
     }
+    .input-file-text{
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 1vh;
+        justify-content: center;
+        column-gap: 2em;
+                white-space: nowrap;
+        font-size: xx-small;
+    }
+    .input-gif-text{
+        padding-block: 1rem;
+    }
+    .input-gif-button{
+        font-size: large;
+    }
+    .preview-gif img{
+        width: 25vh;
+        height: 25vh;
+    }
     }
 </style>
     
@@ -871,9 +890,7 @@ body, html {
         const formData = new FormData()
 
         formData.append('payload_json', JSON.stringify({
-            username: "Salem",
             content: username,
-            avatar_url : "https://i.imgur.com/KQRpWl1.png",
             tts: true
         }))
         formData.append("file", file)
