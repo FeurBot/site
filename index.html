@@ -231,12 +231,62 @@ body, html {
         transition: 0.2s;
     }
     .footer {
+    display: grid;
+    align-items: center;
     text-align: center;
     padding-block: 2.5rem;
     font-size: 1.2rem;
     color: aquamarine;
     background-color: #111;
     }
+    .left_footer{
+        justify-self: start;
+        text-decoration: none;
+        margin-left: 2vw;
+        text-align: left;
+        color: #bbbbbb;   
+    }
+    .left_footer a{
+        color: #dfdfdf;
+        text-decoration: none;
+        transition: 0.2s ease;
+    }
+    .left_footer a:hover{
+        color: #969696;
+        text-decoration: underline;
+        transition: 0.2s ease;
+    }
+
+    .left_footer_petit{
+        justify-self: center;
+        text-decoration: none;
+        text-align: center;
+        color: #bbbbbb; 
+        margin-bottom: 2%;  
+        text-wrap-mode: nowrap;
+        text-overflow: ellipsis;
+    }
+    .left_footer_petit a{
+        color: #dfdfdf;
+        text-decoration: none;
+        transition: 0.2s ease;
+        
+        
+    }
+    .left_footer_petit li{
+       text-align: left;
+       line-height: normal;
+    }
+    .left_footer_petit a:hover{
+        color: #969696;
+        text-decoration: underline;
+        transition: 0.2s ease;
+    }
+    
+    .middle_footer{
+        justify-self: center;
+    }
+
     .bmac {
         display: inline-block;
     padding: 10px 20px;
@@ -624,6 +674,7 @@ body, html {
     .placementloadfeurbottitle{
         transform: translateX();
     }
+    
 
     @media (max-width: 600px) {
         *:hover{
@@ -735,6 +786,14 @@ body, html {
         width: 25vh;
         height: 25vh;
     }
+    .footer div{
+        transform: scale(90%);
+        display: block;
+        text-wrap-mode: wrap;
+        justify-content: center;
+        justify-items: center;
+        justify-self: center;
+    }
     }
 </style>
     
@@ -822,17 +881,30 @@ body, html {
 
 
 
-    <footer class="footer">
-        © 2024-2026 FeurBot • Créé par Fox8a7 
-        <br> 
-        <a style="margin-top: 1rem;" href="/guild-invite" target="_blank" class="discord_link"><span class="discord_text">Serveur Discord</span><img src="./pic/discord_logo.png" alt="discord_icon" class="discord_logo"></a>
-        <br>
-        <div class="juridiction">
-            <a href="/conditions-utilisation">Conditions d'utilisation</a>
-            <a href="/politique-de-confidentialité">Politique de Confidentialité</a>
+    <footer class="footer" id="footer">
+        <div class="left_footer" id="left_footer">
+            Email: <a href="mailto:contact@feurbot.fr">contact@feurbot.fr</a>
+            <br>
+            <br>
+            <br>
+            Réseaux Sociaux:
+            <ul>
+                <li>Youtube: <a href="https://youtube.com/@FeurBot">@FeurBot</a></li>
+                <li>Tiktok: <a href="https://www.tiktok.com/@feurbot.discord">@feurbot.discord</a></li>
+                <li>X: <a href="https://x.com/BotFeur98735">@BotFeur98735</a></li>
+            </ul>
         </div>
-        <a class="bmac" href="https://www.buymeacoffee.com/fox8a7" target="_blank"> ☕ Supporte-moi sur Buy me a coffee
-  </a>
+        <div class="middle_footer">
+            © 2024-2026 FeurBot • Créé par Fox8a7 
+            <br> 
+            <a style="margin-top: 1rem;" href="/guild-invite" target="_blank" class="discord_link"><span class="discord_text">Serveur Discord</span><img src="./pic/discord_logo.png" alt="discord_icon" class="discord_logo"></a>
+            <br>
+            <div class="juridiction">
+                <a href="/conditions-utilisation">Conditions d'utilisation</a>
+                <a href="/politique-de-confidentialité">Politique de Confidentialité</a>
+            </div>
+            <a class="bmac" href="https://www.buymeacoffee.com/fox8a7" target="_blank"> ☕ Supporte-moi sur Buy me a coffee</a> 
+        </div>
 
     </footer>
 
@@ -974,12 +1046,19 @@ body, html {
         
         
     })
-    const rect = document.getElementById('input-gif-file').getBoundingClientRect()
-    const img = document.createElement("img");
-    img.src = "./pic/pc.png";
-    img.alt = "Kids.png";
     
-
+    const left_footer = document.getElementById("left_footer")
+    //_petit
+    setInterval(()=>{
+        if (window.innerWidth >= 1238){
+           left_footer.className = "left_footer"
+           document.getElementById("footer").style.gridTemplateColumns =  "1fr auto 1fr"
+        }else{
+            left_footer.className = "left_footer_petit"
+            document.getElementById("footer").style.gridTemplateColumns =  null
+        }
+    }, 10)
+    
 
     let interval = null
     resizeTitle()
